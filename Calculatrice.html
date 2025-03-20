@@ -34,6 +34,11 @@
 
             <button class="number" onclick="appendToDisplay('0')">0</button>
             <button class="number" onclick="appendToDisplay('.')">.</button>
+
+            <button class="operator" onclick="calculateSquareRoot()">√</button>
+            <button class="operator" onclick="appendToDisplay('**')">xʸ</button>
+            <button class="operator" onclick="calculateFactorial()">x!</button>
+
         </div>
     </div>
 
@@ -53,6 +58,31 @@
                 document.getElementById('display').value = 'Erreur';
             }
         }
+
+        // Fonction pour calculer la racine carrée
+        function calculateSquareRoot() {
+            let display = document.getElementById("display");
+            display.value = Math.sqrt(parseFloat(display.value));
+        }
+
+        // Fonction pour calculer la factorielle
+        function calculateFactorial() {
+            let display = document.getElementById("display");
+            let num = parseInt(display.value);
+    
+            if (num < 0) {
+                display.value = "Erreur";
+                return;
+            }
+
+            let fact = 1;
+                for (let i = 1; i <= num; i++) {
+                fact *= i;
+            }
+
+            display.value = fact;
+        }
+
     </script>
     
 </body>
